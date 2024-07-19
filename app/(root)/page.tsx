@@ -1,5 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { podcastData } from "@/constants";
+import PodcastCard from "@/components/ui/PodcastCard";
 
 function Home() {
   return (
@@ -8,7 +10,17 @@ function Home() {
         <h1 className="text-20 font-bold text-white-1">
           Trending Publications
         </h1>
-        <Button className="text-white-1 bg-orange-1">Button</Button>
+        <div className="podcast_grid">
+          {podcastData.map(({ id, title, description, imgURL }) => (
+            <PodcastCard
+              key={id}
+              title={title}
+              description={description}
+              imgUrl={imgURL}
+              podcastId={id}
+            />
+          ))}
+        </div>
       </section>
     </div>
   );
