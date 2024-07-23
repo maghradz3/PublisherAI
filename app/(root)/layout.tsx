@@ -3,6 +3,8 @@ import MobileNav from "@/components/ui/MobileNav";
 import RigthSideBar from "@/components/ui/RigthSideBar";
 import Image from "next/image";
 
+import { Toaster } from "@/components/ui/toaster";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,7 +26,7 @@ export default function RootLayout({
               <MobileNav />
             </div>
             <div className="flex flex-col md:pb-14">
-              Toaster
+              <Toaster />
               {children}
             </div>
           </div>
