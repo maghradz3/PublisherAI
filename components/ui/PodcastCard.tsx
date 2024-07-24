@@ -5,12 +5,12 @@ const PodcastCard = ({
   title,
   description,
   imgUrl,
-  podcastId,
+  publicationId,
 }: {
   title: string;
   description: string;
   imgUrl: string;
-  podcastId: number;
+  publicationId: string;
 }) => {
   return (
     <div className="cursor-pointer ">

@@ -18,3 +18,23 @@ export interface GenerateThumbnailProps {
   imagePrompt: string;
   setImagePrompt: Dispatch<SetStateAction<string>>;
 }
+
+export interface PublishmentProps {
+  _id: Id<"publishments">;
+  _creationTime: number;
+  audioStorageId: Id<"_storage"> | null;
+  user: Id<"users">;
+  publishmentTitle: string;
+  publishmentDescription: string;
+  audioUrl: string | null;
+  imageUrl: string | null;
+  imageStorageId: Id<"_storage"> | null;
+  author: string;
+  authorId: string;
+  authorImageUrl: string;
+  voicePrompt: string;
+  imagePrompt: string | null;
+  voiceType: string;
+  audioDuration: number;
+  views: number;
+}

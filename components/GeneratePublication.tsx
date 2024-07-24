@@ -23,11 +23,11 @@ const useGeneratePublication = ({
 }: GeneratePublicationProps) => {
   const [isGenerating, setIsgenerating] = React.useState(false);
 
-  const generateUloadUrl = useMutation(api.files.generateUploadUrl);
-  const { startUpload } = useUploadFiles(generateUloadUrl);
+  const generateUploadUrl = useMutation(api.files.generateUploadUrl);
+  const { startUpload } = useUploadFiles(generateUploadUrl);
 
   const getPublicationAudio = useAction(api.openai.generateAudioAction);
-  const getAudioUrl = useMutation(api.podcasts.getUrl);
+  const getAudioUrl = useMutation(api.publications.getUrl);
   const { toast } = useToast();
 
   const generatePublication = async () => {

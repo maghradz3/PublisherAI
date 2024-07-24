@@ -26,7 +26,7 @@ const GenerateThumbnail = ({
   const { toast } = useToast();
   const generateUloadUrl = useMutation(api.files.generateUploadUrl);
   const { startUpload } = useUploadFiles(generateUloadUrl);
-  const getImageUrl = useMutation(api.podcasts.getUrl);
+  const getImageUrl = useMutation(api.publications.getUrl);
   const handleGenerateThumbnail = useAction(api.openai.generateThumbnailAction);
   const handleImage = async (blob: Blob, fileName: string) => {
     setIsImageLoading(true);
