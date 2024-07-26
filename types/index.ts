@@ -38,3 +38,10 @@ export interface PublishmentProps {
   audioDuration: number;
   views: number;
 }
+
+export interface EmptyStateProps {
+  title: string;
+  search?: boolean;
+  buttonText?: string;
+  buttonLink?: string;
+}

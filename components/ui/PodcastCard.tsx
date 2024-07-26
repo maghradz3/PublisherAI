@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const PodcastCard = ({
@@ -12,8 +13,15 @@ const PodcastCard = ({
   imgUrl: string;
   publicationId: string;
 }) => {
+  const router = useRouter();
+  const handleViews = () => {
+    //icnreament views
+
+    router.push(`/publications/${publicationId}`, { scroll: true });
+  };
+
   return (
-    <div className="cursor-pointer ">
+    <div className="cursor-pointer " onClick={handleViews}>
       <figure className="flex flex-col gap-2">
         <Image
           src={imgUrl}

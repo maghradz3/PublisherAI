@@ -59,3 +59,30 @@ export const getTrandingPublications = query({
     return publications;
   },
 });
+
+export const getPublicationsById = query({
+  args: { publishmentId: v.id("publishments") },
+  handler: async (ctx, args) => {
+    return await ctx.db.get(args.publishmentId);
+  },
+});
+
+// this query will get all the podcasts based on the voiceType of the podcast , which we are showing in the Similar Podcasts section.
+export const getPodcastByAuthor = query({
+  args: {
+    publishmentId: v.id("publishments"),
+  },
+  handler: async (ctx, args) => {
+    const podcast = await ctx.db.get(args.publishmentId);
+
+    return await ctx.db
+      .query("publishments")
+      .filter((q) =>
+        q.and(
+          q.eq(q.field("authorId"), podcast?.authorId),
+          q.neq(q.field("_id"), args.publishmentId)
+        )
+      )
+      .collect();
+  },
+});
