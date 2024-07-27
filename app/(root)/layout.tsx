@@ -1,10 +1,11 @@
 import LeftSideBar from "@/components/ui/LeftSideBar";
-import MobileNav from "@/components/ui/MobileNav";
+
 import RigthSideBar from "@/components/ui/RigthSideBar";
 import Image from "next/image";
 
 import { Toaster } from "@/components/ui/toaster";
 import PublicationPlayer from "@/components/PublicationPlayer";
+import MobileNav from "@/components/MobileNav";
 
 export default function RootLayout({
   children,

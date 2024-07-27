@@ -20,8 +20,11 @@ const Discover = ({
   return (
     <div className="flex flex-col">
       <SearchBar />
-      <div className="flex flex-col gap-9">
-        <h1 className="text-20 font-bol text-white-1">Discover</h1>
+      <div className="flex flex-col gap-9 mt-3">
+        <h1 className="text-20 font-bold text-white-1">
+          {!search ? "Discover Trending Publications" : "Search Result for:"}
+          {search && <span className="text-white-2">{search}</span>}
+        </h1>
         {publicationData ? (
           <>
             {publicationData.length > 0 ? (
