@@ -2,6 +2,7 @@
 import EmptyState from "@/components/EmptyState";
 import LoaderSpinner from "@/components/LoaderSpinner";
 import PublicationDetailPlayer from "@/components/PublicationDetailPlayer";
+
 import PodcastCard from "@/components/ui/PodcastCard";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
@@ -19,8 +20,6 @@ const PublishmentDetails = ({
   const publication = useQuery(api.publications.getPublicationsById, {
     publishmentId,
   });
-
-  console.log("aee", publication);
 
   const similarPublicationsByAuthor = useQuery(
     api.publications.getPodcastByAuthor,

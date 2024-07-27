@@ -4,6 +4,7 @@ import RigthSideBar from "@/components/ui/RigthSideBar";
 import Image from "next/image";
 
 import { Toaster } from "@/components/ui/toaster";
+import PublicationPlayer from "@/components/PublicationPlayer";
 
 export default function RootLayout({
   children,
@@ -34,6 +35,7 @@ export default function RootLayout({
 
         <RigthSideBar />
       </main>
+      <PublicationPlayer />
     </div>
   );
 }
