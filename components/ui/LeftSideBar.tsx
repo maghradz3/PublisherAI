@@ -5,10 +5,13 @@ import React from "react";
 import { sidebarLinks } from "@/constants";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { SignedIn, SignedOut, useClerk } from "@clerk/nextjs";
+import { Button } from "./button";
 
 const LeftSideBar = () => {
   const pathname = usePathname();
   const router = useRouter();
+  const { signOut } = useClerk();
   return (
     <section className="left_sidebar">
       <nav className="flex flex-col gap-6">
@@ -40,6 +43,23 @@ const LeftSideBar = () => {
           );
         })}
       </nav>
+      <SignedOut>
+        <div className="flex-center w-full pb-14 max-lg:px-4 lg:px-8">
+          <Button className="text-16 w-full bg-orange-1 font-extrabold" asChild>
+            <Link href="/sign-in">Sign In</Link>
+          </Button>
+        </div>
+      </SignedOut>
+      <SignedIn>
+        <div className="flex-center w-full pb-14 max-lg:px-4 lg:px-8">
+          <Button
+            className="text-16 w-full bg-orange-1 font-extrabold"
+            onClick={() => signOut(() => router.push("/"))}
+          >
+            Log Out
+          </Button>
+        </div>
+      </SignedIn>
     </section>
   );
 };

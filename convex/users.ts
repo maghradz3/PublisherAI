@@ -41,12 +41,13 @@ export const getTopUserByPublishmentCount = query({
           publishment: sortedpublishments.map((p) => ({
             publishmentTitle: p.publishmentTitle,
             publishmentId: p._id,
+            publishmentImageUrl: p.imageUrl,
           })),
         };
       })
     );
 
-    return userData.sort((a, b) => b.totalpublishments - a.totalpublishments);
+    return userData.sort((a, b) => b.totalPublishments - a.totalPublishments);
   },
 });
 

@@ -20,6 +20,8 @@ const PublishmentDetails = ({
     publishmentId,
   });
 
+  console.log("aee", publication);
+
   const similarPublicationsByAuthor = useQuery(
     api.publications.getPodcastByAuthor,
     { publishmentId }

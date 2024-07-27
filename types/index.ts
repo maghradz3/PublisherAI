@@ -45,3 +45,34 @@ export interface EmptyStateProps {
   buttonText?: string;
   buttonLink?: string;
 }
+
+export interface PublicationDetailPlayerProps {
+  audioUrl: string;
+  publishmentTitle: string;
+  author: string;
+  isOwner: boolean;
+  imageUrl: string;
+  publicationId: Id<"publishments">;
+  imageStorageId: Id<"_storage">;
+  audioStorageId: Id<"_storage">;
+  authorImageUrl: string;
+  authorId: string;
+}
+
+export interface TopPublishersProps {
+  _id: Id<"users">;
+  _creationTime: number;
+  email: string;
+  imageUrl: string;
+  clerkId: string;
+  name: string;
+  publishment: {
+    publishmentTitle: string;
+    publishmentId: Id<"publishments">;
+  }[];
+  totalPublishments: number;
+}
+
+export interface CarouselProps {
+  fansLikeDetails: TopPublishersProps[];
+}

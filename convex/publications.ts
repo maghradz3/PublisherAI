@@ -43,7 +43,7 @@ export const createPublication = mutation({
     const publication = await ctx.db.insert("publishments", {
       ...args,
       user: user[0]._id,
-      author: user[0]._id,
+      author: user[0].name,
       authorId: user[0].clerkId,
       authorImageUrl: user[0].imageUrl,
     });
@@ -84,5 +84,25 @@ export const getPodcastByAuthor = query({
         )
       )
       .collect();
+  },
+});
+
+// this mutation will delete the podcast.
+export const deletePublication = mutation({
+  args: {
+    publicationId: v.id("publishments"),
+    imageStorageId: v.id("_storage"),
+    audioStorageId: v.id("_storage"),
+  },
+  handler: async (ctx, args) => {
+    const podcast = await ctx.db.get(args.publicationId);
+
+    if (!podcast) {
+      throw new ConvexError("Podcast not found");
+    }
+
+    await ctx.storage.delete(args.imageStorageId);
+    await ctx.storage.delete(args.audioStorageId);
+    return await ctx.db.delete(args.publicationId);
   },
 });
