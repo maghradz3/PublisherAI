@@ -16,7 +16,7 @@ export const sidebarLinks = [
   },
 ];
 
-export const podcastData = [
+export const publicationData = [
   {
     id: 1,
     title: "The Joe Rogan Experience",
