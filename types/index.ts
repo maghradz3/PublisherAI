@@ -89,3 +89,14 @@ export interface AudioContextType {
   audio: AudioProps | undefined;
   setAudio: React.Dispatch<React.SetStateAction<AudioProps | undefined>>;
 }
+
+export interface ProfilePublishmentProps {
+  publications: PublishmentProps[];
+  listeners: number;
+}
+
+export interface ProfileCardProps {
+  publicationData: ProfilePublishmentProps;
+  imageUrl: string;
+  userFirstName: string;
+}

@@ -7,7 +7,7 @@ import Carousel from "../Carousel";
 import Header from "../Header";
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import LoaderSpinner from "../LoaderSpinner";
 import { useAudio } from "@/providers/AudioProvider";
 import { cn } from "@/lib/utils";
@@ -17,13 +17,21 @@ const RigthSideBar = () => {
   const router = useRouter();
   const topPublishers = useQuery(api.users.getTopUserByPublishmentCount);
   const { audio } = useAudio();
+  const pathname = usePathname();
+
+  const profilePath = pathname.includes("/profile") ? "/profile" : "/profile";
+  console.log(pathname);
+  console.log(profilePath);
 
   if (!topPublishers) return <LoaderSpinner />;
   return (
     <section
-      className={cn("right_sidebar h-[calc(100vh-5px)]", {
-        "h-[calc(100vh-140px)]": audio?.audioUrl,
-      })}
+      className={cn(
+        "right_sidebar border-solid border-red-500 border-2 h-[calc(100vh-5px)]",
+        {
+          "h-[calc(100vh-140px)]": audio?.audioUrl,
+        }
+      )}
     >
       <SignedIn>
         <Link href={`/profile/${user?.id}`} className="flex gap-3 pb-12">
@@ -36,8 +44,8 @@ const RigthSideBar = () => {
             <Image
               src="/icons/right-arrow.svg"
               alt="user icon arrow"
-              width={24}
-              height={24}
+              width={50}
+              height={50}
             />
           </div>
         </Link>
@@ -53,7 +61,7 @@ const RigthSideBar = () => {
             <div
               key={publisher._id}
               className="flex cursor-pointer justify-between"
-              onClick={() => router.push(`profile/${publisher.clerkId}`)}
+              onClick={() => router.push(`${profilePath}/${publisher.clerkId}`)}
             >
               <figure className="flex items-center gap-2">
                 <Image

@@ -32,7 +32,7 @@ const MobileNav = () => {
             className="flex cursor-pointer items-center gap-1 pb-10 pl-4"
           >
             <Image
-              src="/publishe-trans.png"
+              src="/Publishe-trans.png"
               alt="Logo"
               width={90}
               height={90}

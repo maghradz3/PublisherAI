@@ -23,10 +23,15 @@ const LeftSideBar = () => {
       <nav className="flex flex-col gap-6">
         <Link
           href="/"
-          className="flex cursor-pointer items-center gap-1 pb-10 max-lg:justify-center"
+          className="flex cursor-pointer items-center pb-10 max-lg:justify-center"
         >
-          <Image src="/publishe-trans.png" alt="Logo" width={90} height={90} />
-          <h1 className="text-24 font-extrabold text-white max-lg:hidden">
+          <Image
+            src="/Publishe-trans.png"
+            alt="  Logo"
+            width={90}
+            height={90}
+          />
+          <h1 className="text-24  font-extrabold text-white max-lg:hidden">
             PublisherAI
           </h1>
         </Link>
