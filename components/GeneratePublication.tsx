@@ -57,8 +57,8 @@ const useGeneratePublication = ({
       toast({ title: "Publication generated" });
     } catch (error) {
       console.log("Error in generating publication", error);
-      setIsgenerating(false);
       toast({ title: "Error in generating publication" });
+      setIsgenerating(false);
     }
   };
 
@@ -96,7 +96,7 @@ const GeneratePublication = (props: GeneratePublicationProps) => {
               <Loader size={20} className="animate-spin ml-2" />
             </>
           ) : (
-            "Generate & Publish"
+            "Generate"
           )}
         </Button>
       </div>

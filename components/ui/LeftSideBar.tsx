@@ -32,7 +32,7 @@ const LeftSideBar = () => {
             height={90}
           />
           <h1 className="text-24  font-extrabold text-white max-lg:hidden">
-            PublisherAI
+            Publisher<span className="text-orange-1">AI</span>
           </h1>
         </Link>
 
@@ -45,7 +45,10 @@ const LeftSideBar = () => {
               href={route}
               className={cn(
                 "flex gap-3 items-center py-4 max-lg:px-4 justify-center lg:justify-start",
-                { "bg-nav-focus border-r-4 border-orange-1": isActive }
+                {
+                  "bg-nav-focus border-r-4 border-orange-1 text-orange-1":
+                    isActive,
+                }
               )}
             >
               <Image src={imgURL} alt={label} width={24} height={24} />

@@ -102,6 +102,7 @@ const CreatePublication = () => {
       router.push("/");
     } catch (error) {
       console.log(error);
+      console.log("erroori modis akedan");
       toast({ title: "Error creating publication", variant: "destructive" });
       setIsSubmitting(false);
     }
@@ -109,7 +110,9 @@ const CreatePublication = () => {
 
   return (
     <section className="mt-10 flex flex-col">
-      <h1 className="text-16 font-bold text-white-1">Create Publication</h1>
+      <h1 className="text-16 font-bold text-white-1">
+        Create <span className="text-orange-1">Publication</span>
+      </h1>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}

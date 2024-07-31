@@ -100,3 +100,9 @@ export interface ProfileCardProps {
   imageUrl: string;
   userFirstName: string;
 }
+
+export interface ProfileCardsDataProps {
+  userFirstName: string;
+  clerkId: string;
+  imageUrl: string;
+}
