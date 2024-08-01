@@ -100,7 +100,7 @@ const PublicationDetailPlayer = ({
               height={20}
               alt="random play"
             />{" "}
-            &nbsp; Play podcast
+            &nbsp; Play Publication
           </Button>
         </div>
       </div>

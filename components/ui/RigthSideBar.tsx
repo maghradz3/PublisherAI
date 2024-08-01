@@ -76,7 +76,7 @@ const RigthSideBar = () => {
                 </h2>
               </figure>
               <div className="flex items-center">
-                <p className="text-12 font-normal">
+                <p className="text-12 font-normal text-white-2">
                   {publisher.totalPublishments} Publications
                 </p>
               </div>

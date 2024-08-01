@@ -15,12 +15,13 @@ const ProfileCard = ({
 }: ProfileCardProps) => {
   const { setAudio } = useAudio();
 
-  const [randomPublication, setRandomPublication] = useState<PublishmentProps | null>(
-    null
-  );
+  const [randomPublication, setRandomPublication] =
+    useState<PublishmentProps | null>(null);
 
   const playRandomPublication = () => {
-    const randomIndex = Math.floor(Math.random() * publicationData.publications.length);
+    const randomIndex = Math.floor(
+      Math.random() * publicationData.publications.length
+    );
 
     setRandomPublication(publicationData.publications[randomIndex]);
   };
@@ -88,7 +89,7 @@ const ProfileCard = ({
               height={20}
               alt="random play"
             />{" "}
-            &nbsp; Play a random podcast
+            &nbsp; Play a random Publication
           </Button>
         )}
       </div>

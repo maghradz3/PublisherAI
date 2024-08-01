@@ -8,8 +8,10 @@ import { cn } from "@/lib/utils";
 import { useAudio } from "@/providers/AudioProvider";
 
 import { Progress } from "./ui/progress";
+import { Button } from "./ui/button";
 
 const PublicationPlayer = () => {
+  const { setAudio } = useAudio();
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0.1);
@@ -93,6 +95,10 @@ const PublicationPlayer = () => {
     setIsPlaying(false);
   };
 
+  const closeButton = () => {
+    setAudio(undefined);
+  };
+
   return (
     <div
       className={cn("sticky bottom-0 left-0 flex size-full flex-col", {
@@ -104,7 +110,7 @@ const PublicationPlayer = () => {
         className="w-full"
         max={duration}
       />
-      <section className="glassmorphism-black flex h-[112px] w-full items-center justify-between px-4 max-md:justify-center max-md:gap-5 md:px-12">
+      <section className="glassmorphism-black flex h-[112px] w-full items-center justify-between px-4 max-md:justify-center max-md:gap-5 md:px-12 relative ">
         <audio
           ref={audioRef}
           src={audio?.audioUrl}
@@ -173,6 +179,12 @@ const PublicationPlayer = () => {
             />
           </div>
         </div>
+        <Button
+          className="absolute right-2 top-1 text-orange-1 w-10 h-10  "
+          onClick={closeButton}
+        >
+          X
+        </Button>
       </section>
     </div>
   );
